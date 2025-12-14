@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "rork-app",
+    "scheme": "tgride",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
@@ -15,7 +15,7 @@
     },
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "app.rork.covoiturage-securise-togo",
+      "bundleIdentifier": "com.tgride.covoiturage",
       "infoPlist": {
         "NSPhotoLibraryUsageDescription": "Allow $(PRODUCT_NAME) to access your photos",
         "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access your camera",
@@ -33,7 +33,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "app.rork.covoiturage_securise_togo",
+      "package": "com.tgride.covoiturage",
       "permissions": [
         "CAMERA",
         "READ_EXTERNAL_STORAGE",
@@ -56,7 +56,7 @@
       [
         "expo-router",
         {
-          "origin": "https://rork.com/"
+          "origin": "https://localhost"
         }
       ],
       "expo-font",
