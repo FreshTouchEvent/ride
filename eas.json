@@ -1,0 +1,51 @@
+{
+  "build": {
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true
+      }
+    },
+    "preview2": {
+      "android": {
+        "gradleCommand": ":app:assembleRelease"
+      }
+    },
+    "preview3": {
+      "developmentClient": true
+    },
+    "production": {
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "ios": {
+        "buildType": "ipa"
+      }
+    },
+    "staging": {
+      "extends": "production",
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "NODE_ENV": "staging"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "serviceAccount": "@env ANDROID_SERVICE_ACCOUNT",
+        "track": "internal"
+      },
+      "ios": {
+        "appleId": "@env APPLE_ID",
+        "appleTeamId": "@env APPLE_TEAM_ID",
+        "appIdentifier": "com.tgride.covoiturage"
+      }
+    }
+  }
+}
