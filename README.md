@@ -1,31 +1,20 @@
-# Welcome to your Rork app
+# TGRide - Secure Carpooling App for Togo
 
-## Project info
+A production-ready mobile carpooling application for Togo built with React Native, Expo, and Supabase. Features enterprise-grade robustness including offline-first sync, real-time messaging, and security-first architecture.
 
-This is a native cross-platform mobile app created with [Rork](https://rork.com)
-
-**Platform**: Native iOS & Android app, exportable to web
-**Framework**: Expo Router + React Native
+**[📚 Full Documentation](./INTEGRATION_GUIDE.md)** | **[🛡️ Robustness](./ROBUSTNESS_CHECKLIST.md)** | **[🔧 Integration](./UI_INTEGRATION_STEPS.md)**
 
 ## How can I edit this code?
 
 There are several ways of editing your native mobile application.
 
-### **Use Rork**
+### Development with Local Editor
 
-Simply visit [rork.com](https://rork.com) and prompt to build your app with AI.
+You can work locally using your preferred code editor and push changes to GitHub.
 
-Changes made via Rork will be committed automatically to this GitHub repo.
-
-Whenever you make a change in your local code editor and push it to GitHub, it will be also reflected in Rork.
-
-### **Use your preferred code editor**
-
-If you want to work locally using your own code editor, you can clone this repo and push changes. Pushed changes will also be reflected in Rork.
-
-If you are new to coding and unsure which editor to use, we recommend Cursor. If you're familiar with terminals, try Claude Code.
-
-The only requirement is having Node.js & Bun installed - [install Node.js with nvm](https://github.com/nvm-sh/nvm) and [install Bun](https://bun.sh/docs/installation)
+Requirements:
+- Node.js v18+ ([install via nvm](https://github.com/nvm-sh/nvm))
+- Bun ([install](https://bun.sh/docs/installation))
 
 Follow these steps:
 
@@ -55,264 +44,161 @@ bun run start -- --ios
 - Click the "Edit" button (pencil icon) at the top right of the file view.
 - Make your changes and commit the changes.
 
-## What technologies are used for this project?
+## 🛠️ Tech Stack
 
-This project is built with the most popular native mobile cross-platform technical stack:
+- **Mobile Framework**: React Native 0.81
+- **App Shell**: Expo 54
+- **Routing**: Expo Router 6
+- **State**: Zustand + Tanstack Query
+- **Backend**: Supabase (PostgreSQL)
+- **Real-time**: Supabase Realtime (WebSocket)
+- **Maps**: React Native Maps + Mapbox
+- **Notifications**: Expo Notifications + Sentry
+- **Language**: TypeScript 5.9
+- **Build**: EAS Build
+- **Package Manager**: Bun
 
-- **React Native** - Cross-platform native mobile development framework created by Meta and used for Instagram, Airbnb, and lots of top apps in the App Store
-- **Expo** - Extension of React Native + platform used by Discord, Shopify, Coinbase, Telsa, Starlink, Eightsleep, and more
-- **Expo Router** - File-based routing system for React Native with support for web, server functions and SSR
-- **TypeScript** - Type-safe JavaScript
-- **React Query** - Server state management
-- **Lucide React Native** - Beautiful icons
+## 📁 Project Structure
 
-## How can I test my app?
+```
+app/                       # Expo Router screens
+utils/                     # 9 robustness utilities
+hooks/                     # Custom React hooks
+supabase/                  # Edge Functions + Schema
+contexts/                  # React Context
+components/                # UI components
+constants/                 # App configuration
+lib/                       # Library setup
+types/                     # TypeScript types
+tests/                     # Test suites
+```
 
-### **On your phone (Recommended)**
+## 🚀 Getting Started
 
-1. **iOS**: Download the [Rork app from the App Store](https://apps.apple.com/app/rork) or [Expo Go](https://apps.apple.com/app/expo-go/id982107779)
-2. **Android**: Download the [Expo Go app from Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent)
-3. Run `bun run start` and scan the QR code from your development server
+### Requirements
+- Node.js v18+ ([install via nvm](https://github.com/nvm-sh/nvm))
+- Bun ([install](https://bun.sh/docs/installation))
+- Supabase Account (free tier)
+- Expo Account (free tier)
 
-### **In your browser**
-
-Run `bun start-web` to test in a web browser. Note: The browser preview is great for quick testing, but some native features may not be available.
-
-### **iOS Simulator / Android Emulator**
-
-You can test Rork apps in Expo Go or Rork iOS app. You don't need XCode or Android Studio for most features.
-
-**When do you need Custom Development Builds?**
-
-- Native authentication (Face ID, Touch ID, Apple Sign In)
-- In-app purchases and subscriptions
-- Push notifications
-- Custom native modules
-
-Learn more: [Expo Custom Development Builds Guide](https://docs.expo.dev/develop/development-builds/introduction/)
-
-If you have XCode (iOS) or Android Studio installed:
+### Installation
 
 ```bash
-# iOS Simulator
-bun run start -- --ios
+git clone https://github.com/FreshTouchEvent/ride.git
+cd ride
+bun i
+cp .env.example .env
+```
+
+Edit .env with your Supabase credentials.
+
+### Development
+
+```bash
+# Start dev server
+bun start
+
+# iOS Simulator (press 'i')
+bun start -- --ios
 
 # Android Emulator
-bun run start -- --android
+bun start -- --android
+
+# Web preview
+bun start-web
 ```
 
-## How can I deploy this project?
+### Testing
 
-### **Publish to App Store (iOS)**
-
-1. **Install EAS CLI**:
-
-   ```bash
-   bun i -g @expo/eas-cli
-   ```
-
-2. **Configure your project**:
-
-   ```bash
-   eas build:configure
-   ```
-
-3. **Build for iOS**:
-
-   ```bash
-   eas build --platform ios
-   ```
-
-4. **Submit to App Store**:
-   ```bash
-   eas submit --platform ios
-   ```
-
-For detailed instructions, visit [Expo's App Store deployment guide](https://docs.expo.dev/submit/ios/).
-
-### **Publish to Google Play (Android)**
-
-1. **Build for Android**:
-
-   ```bash
-   eas build --platform android
-   ```
-
-2. **Submit to Google Play**:
-   ```bash
-   eas submit --platform android
-   ```
-
-For detailed instructions, visit [Expo's Google Play deployment guide](https://docs.expo.dev/submit/android/).
-
-### **Publish as a Website**
-
-Your React Native app can also run on the web:
-
-1. **Build for web**:
-
-   ```bash
-   eas build --platform web
-   ```
-
-2. **Deploy with EAS Hosting**:
-   ```bash
-   eas hosting:configure
-   eas hosting:deploy
-   ```
-
-Alternative web deployment options:
-
-- **Vercel**: Deploy directly from your GitHub repository
-- **Netlify**: Connect your GitHub repo to Netlify for automatic deployments
-
-## App Features
-
-This template includes:
-
-- **Cross-platform compatibility** - Works on iOS, Android, and Web
-- **File-based routing** with Expo Router
-- **Tab navigation** with customizable tabs
-- **Modal screens** for overlays and dialogs
-- **TypeScript support** for better development experience
-- **Async storage** for local data persistence
-- **Vector icons** with Lucide React Native
-
-## Project Structure
-
-```
-├── app/                    # App screens (Expo Router)
-│   ├── (tabs)/            # Tab navigation screens
-│   │   ├── _layout.tsx    # Tab layout configuration
-│   │   └── index.tsx      # Home tab screen
-│   ├── _layout.tsx        # Root layout
-│   ├── modal.tsx          # Modal screen example
-│   └── +not-found.tsx     # 404 screen
-├── assets/                # Static assets
-│   └── images/           # App icons and images
-├── constants/            # App constants and configuration
-├── app.json             # Expo configuration
-├── package.json         # Dependencies and scripts
-└── tsconfig.json        # TypeScript configuration
+```bash
+bun test                  # All tests
+bun run test:rls         # RLS security
+bun run test:booking     # Booking edge cases
+bun lint                 # Code quality
 ```
 
-## Custom Development Builds
+## 📦 Deployment
 
-For advanced native features, you'll need to create a Custom Development Build instead of using Expo Go.
-
-### **When do you need a Custom Development Build?**
-
-- **Native Authentication**: Face ID, Touch ID, Apple Sign In, Google Sign In
-- **In-App Purchases**: App Store and Google Play subscriptions
-- **Advanced Native Features**: Third-party SDKs, platform-specifc features (e.g. Widgets on iOS)
-- **Background Processing**: Background tasks, location tracking
-
-### **Creating a Custom Development Build**
+### Mobile Apps
 
 ```bash
 # Install EAS CLI
 bun i -g @expo/eas-cli
 
-# Configure your project for development builds
-eas build:configure
+# iOS → App Store
+eas build --platform ios
+eas submit --platform ios
 
-# Create a development build for your device
-eas build --profile development --platform ios
-eas build --profile development --platform android
-
-# Install the development build on your device and start developing
-bun start --dev-client
+# Android → Google Play
+eas build --platform android
+eas submit --platform android
 ```
 
-**Learn more:**
+### Web
 
-- [Development Builds Introduction](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Creating Development Builds](https://docs.expo.dev/develop/development-builds/create-a-build/)
-- [Installing Development Builds](https://docs.expo.dev/develop/development-builds/installation/)
+```bash
+# Build for web
+eas build --platform web
 
-## Advanced Features
+# Deploy to Vercel/Netlify
+eas hosting:deploy
+```
 
-### **Add a Database**
+## 📚 Documentation
 
-Integrate with backend services:
+- [ROBUSTNESS_CHECKLIST.md](./ROBUSTNESS_CHECKLIST.md) - Feature inventory & monitoring setup
+- [INTEGRATION_GUIDE.md](./INTEGRATION_GUIDE.md) - Code patterns for each feature
+- [UI_INTEGRATION_STEPS.md](./UI_INTEGRATION_STEPS.md) - Step-by-step integration
+- [PATTERN_TEMPLATES.md](./PATTERN_TEMPLATES.md) - Reusable patterns for new screens
+- [CLAUDE.md](./CLAUDE.md) - Development command reference
 
-- **Supabase** - PostgreSQL database with real-time features
-- **Firebase** - Google's mobile development platform
-- **Custom API** - Connect to your own backend
+## 🔧 Configuration
 
-### **Add Authentication**
+### Environment Variables
 
-Implement user authentication:
+```env
+EXPO_PUBLIC_SUPABASE_URL=your_url
+EXPO_PUBLIC_SUPABASE_ANON_KEY=your_key
+EXPO_PUBLIC_MAPBOX_TOKEN=your_token
+SENTRY_DSN=your_dsn
+EXPO_PUBLIC_DEBUG_MODE=false
+```
 
-**Basic Authentication (works in Expo Go):**
+### App Configuration
+- Deep linking: tgride://
+- iOS bundle: com.tgride.covoiturage
+- Android package: com.tgride.covoiturage
+- Permissions: Location (background), Camera, Notifications
 
-- **Expo AuthSession** - OAuth providers (Google, Facebook, Apple) - [Guide](https://docs.expo.dev/guides/authentication/)
-- **Supabase Auth** - Email/password and social login - [Integration Guide](https://supabase.com/docs/guides/getting-started/tutorials/with-expo-react-native)
-- **Firebase Auth** - Comprehensive authentication solution - [Setup Guide](https://docs.expo.dev/guides/using-firebase/)
+## 🐛 Troubleshooting
 
-**Native Authentication (requires Custom Development Build):**
+| Issue | Solution |
+|-------|----------|
+| App not loading | Same WiFi + `bun start --tunnel` |
+| Build failing | `bunx expo start --clear` |
+| TypeScript errors | `bun tsc --noEmit` |
+| RLS blocking | Check user auth + ID match |
+| Realtime down | Enable realtime in Supabase |
+| Sync queue stuck | Check network + AsyncStorage |
 
-- **Apple Sign In** - Native Apple authentication - [Implementation Guide](https://docs.expo.dev/versions/latest/sdk/apple-authentication/)
-- **Google Sign In** - Native Google authentication - [Setup Guide](https://docs.expo.dev/guides/google-authentication/)
+See [ROBUSTNESS_CHECKLIST.md](./ROBUSTNESS_CHECKLIST.md) for detailed monitoring.
 
-### **Add Push Notifications**
+## 📊 Monitoring
 
-Send notifications to your users:
+- **Error Tracking**: Sentry integration
+- **Session Monitoring**: user_sessions table
+- **Error Logs**: error_logs table with severity levels
+- **Rate Limiting**: Per-user tracking
+- **Offline Sync**: AsyncStorage queue
 
-- **Expo Notifications** - Cross-platform push notifications
-- **Firebase Cloud Messaging** - Advanced notification features
+## 📝 License
 
-### **Add Payments**
+Proprietary - All rights reserved
 
-Monetize your app:
+## 🤝 Contributing
 
-**Web & Credit Card Payments (works in Expo Go):**
+Internal development. Push to main after code review.
 
-- **Stripe** - Credit card payments and subscriptions - [Expo + Stripe Guide](https://docs.expo.dev/guides/using-stripe/)
-- **PayPal** - PayPal payments integration - [Setup Guide](https://developer.paypal.com/docs/checkout/mobile/react-native/)
+---
 
-**Native In-App Purchases (requires Custom Development Build):**
-
-- **RevenueCat** - Cross-platform in-app purchases and subscriptions - [Expo Integration Guide](https://www.revenuecat.com/docs/expo)
-- **Expo In-App Purchases** - Direct App Store/Google Play integration - [Implementation Guide](https://docs.expo.dev/versions/latest/sdk/in-app-purchases/)
-
-**Paywall Optimization:**
-
-- **Superwall** - Paywall A/B testing and optimization - [React Native SDK](https://docs.superwall.com/docs/react-native)
-- **Adapty** - Mobile subscription analytics and paywalls - [Expo Integration](https://docs.adapty.io/docs/expo)
-
-## I want to use a custom domain - is that possible?
-
-For web deployments, you can use custom domains with:
-
-- **EAS Hosting** - Custom domains available on paid plans
-- **Netlify** - Free custom domain support
-- **Vercel** - Custom domains with automatic SSL
-
-For mobile apps, you'll configure your app's deep linking scheme in `app.json`.
-
-## Troubleshooting
-
-### **App not loading on device?**
-
-1. Make sure your phone and computer are on the same WiFi network
-2. Try using tunnel mode: `bun start -- --tunnel`
-3. Check if your firewall is blocking the connection
-
-### **Build failing?**
-
-1. Clear your cache: `bunx expo start --clear`
-2. Delete `node_modules` and reinstall: `rm -rf node_modules && bun install`
-3. Check [Expo's troubleshooting guide](https://docs.expo.dev/troubleshooting/build-errors/)
-
-### **Need help with native features?**
-
-- Check [Expo's documentation](https://docs.expo.dev/) for native APIs
-- Browse [React Native's documentation](https://reactnative.dev/docs/getting-started) for core components
-- Visit [Rork's FAQ](https://rork.com/faq) for platform-specific questions
-
-## About Rork
-
-Rork builds fully native mobile apps using React Native and Expo - the same technology stack used by Discord, Shopify, Coinbase, Instagram, and nearly 30% of the top 100 apps on the App Store.
-
-Your Rork app is production-ready and can be published to both the App Store and Google Play Store. You can also export your app to run on the web, making it truly cross-platform.
+**Built with ❤️ for secure, reliable carpooling in Togo**
